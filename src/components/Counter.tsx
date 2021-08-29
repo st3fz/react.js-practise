@@ -32,9 +32,9 @@ export default class Counter extends React.Component<Props, State> {
     render() {
         return(
             <div>
-                <div>Count: {this.state.count}</div>
-                <button onClick={this.handleIncrement}>increment</button>
-                <button onClick={this.handleDecrement}>increment</button>
+                <h1>Count: <span>{this.state.count}</span></h1>
+                <button className="btn btn-dark" onClick={this.handleDecrement}>decrement</button>
+                <button className="btn btn-light" onClick={this.handleIncrement}>increment</button>
             </div>
         )
     }
