@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Color from './components/Color';
 import Counter from './components/Counter';
+import Form from './components/Form';
 import ImageSlider from './components/ImageSlider';
 
 function App() {
@@ -11,22 +12,23 @@ function App() {
   )
 
   return (
-    <div className="container">
+    <div className="container text-center my-auto">
       <div className="row">
-        <div className="col-4">
+        <div className="col-3">
           <Color/>
         </div>
-        <div className="col-4">
+        <div className="col-3">
           <Counter initialCount={randomNumber}/>
         </div>
-        <div className="col-4">
+        <div className="col-6">
           <ImageSlider/>
-          </div>
+        </div>
+        <div className="col-9">
+          <Form/>
+        </div>
       </div>
     </div>
   );
 }
-
-// Sending color data from child (Color.tsx) to parent (App.tsx)
 
 export default App;

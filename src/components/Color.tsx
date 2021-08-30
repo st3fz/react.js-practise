@@ -1,7 +1,7 @@
 const Color: React.FC = () => {
     return(
         <>
-        <h1>Hi test</h1>
+        <h1>Hi welcome!</h1>
         </>
     )
 }

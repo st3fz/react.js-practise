@@ -1,8 +1,21 @@
-#root {
+.row {
     background-image: linear-gradient(
         90deg,
-        rgb(211, 234, 243),  
-        rgb(229, 190, 233),
-        rgb(190, 224, 189)
+        rgb(226, 212, 199),
+        rgb(223, 199, 226),
+        rgb(211, 234, 243), 
+        rgb(190, 224, 189),
+        rgb(226, 212, 199)
     );
+}
+
+.col-3, .col-4, .col-6, .col-9 {
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 35px;
+    border: 7px solid white;
+}
+
+.container {
+    margin: 0;
 }
