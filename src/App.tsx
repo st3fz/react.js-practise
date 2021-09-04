@@ -3,6 +3,7 @@ import './App.css';
 import Color from './components/Color';
 import Counter from './components/Counter';
 import Form from './components/Form';
+import Form2 from './components/Form2';
 import ImageSlider from './components/ImageSlider';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
         </div>
         <div className="col-9">
           <Form/>
+        </div>
+        <div className="col-9">
+          <Form2/>
         </div>
       </div>
     </div>

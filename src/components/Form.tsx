@@ -6,12 +6,14 @@ const Form: React.FC = () => {
     const[ checkbox , setCheckbox] = useState<boolean>(false);
     const[ title , setTitle ] = useState<string>("");
     
-    const handleSubmit = () => {
+    const handleSubmit = (event:any) => {
+        event.preventDefault();
         console.log(`Name: ${name}, Title: ${title}, Checked?: ${checkbox}`);
     }
 
     return(
         <>
+        <form onSubmit={handleSubmit}>
             <select value={title} onChange={(event)=>{setTitle(event.target.value)}}>
                 <option>Ms.</option>
                 <option>Mrs.</option>
@@ -21,7 +23,8 @@ const Form: React.FC = () => {
             checked={checkbox} 
             onClick={()=>{setCheckbox(!checkbox)}}/>
             <p>Printing: Name: {title} {name}</p>
-            <button onClick={handleSubmit}></button>
+            <button type="submit">change</button>
+        </form>
         </>
     )
 }
