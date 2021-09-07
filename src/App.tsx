@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Color from './components/Color';
 import Counter from './components/Counter';
@@ -11,6 +11,12 @@ function App() {
   const randomNumber : number = Math.floor(
     Math.random() * 100
   )
+
+  const [name , setName] = useState<string>("");
+
+  const handleCallback = () => {
+    setName("");
+  }
 
   return (
     <div className="container text-center my-auto">
@@ -25,11 +31,14 @@ function App() {
           <ImageSlider/>
         </div>
         <div className="col-9">
-          <Form/>
+          <Form 
+          // handleCallback={handleCallback} 
+          // name={name}
+          />
         </div>
-        <div className="col-9">
-          <Form2/>
-        </div>
+        {/* <div className="col-9"> */}
+          {/* <Form2/> */}
+        {/* </div> */}
       </div>
     </div>
   );

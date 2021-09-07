@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-const Form: React.FC = () => {
+
+const Form: React.FC = (
+    // {name, formCallback}
+    ) => {
 
     const[ name , setName] = useState<string>("");
     const[ checkbox , setCheckbox] = useState<boolean>(false);
@@ -10,6 +13,10 @@ const Form: React.FC = () => {
         event.preventDefault();
         console.log(`Name: ${name}, Title: ${title}, Checked?: ${checkbox}`);
     }
+    
+    // const formCallback = event => {
+    //     props.formCallback(event.target.name.value);
+    // }
 
     return(
         <>
@@ -23,7 +30,9 @@ const Form: React.FC = () => {
             checked={checkbox} 
             onClick={()=>{setCheckbox(!checkbox)}}/>
             <p>Printing: Name: {title} {name}</p>
-            <button type="submit">change</button>
+            <button type="submit" 
+            // onSubmit={formCallback}
+            >change</button>
         </form>
         </>
     )
