@@ -9,7 +9,7 @@
     );
 }
 
-.col-3, .col-4, .col-6, .col-9 {
+.col, .col-3, .col-4, .col-6, .col-9 {
     padding: 20px;
     padding-top: 30px;
     padding-bottom: 35px;
