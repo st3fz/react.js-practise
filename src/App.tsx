@@ -1,47 +1,48 @@
 import React, { useState } from 'react';
 import './App.css';
-import Color from './components/Color';
-import Counter from './components/Counter';
-import Form from './components/Form';
-import Form2 from './components/Form2';
-import ImageSlider from './components/ImageSlider';
+import Welcome from './components/cards/Welcome';
+import Id from './components/cards/Id';
+import Form from './components/cards/Form';
+import Callback from './components/cards/Callback';
+import ImageSlider from './components/cards/ImageSlider';
 
-function App() {
+const App :  React.FC = () => {
 
-  const randomNumber : number = Math.floor(
-    Math.random() * 100
-  )
-
-  const [name , setName] = useState<string>("");
-
-  const handleCallback = () => {
-    setName("");
-  }
+  const [ fullName , setFullName ] = useState<string>("");
+  const [ randomId , setRandomId ] = useState<number>(NaN);
 
   return (
-    <div className="container text-center my-auto">
-      <div className="row">
-        <div className="col-3">
-          <Color/>
-        </div>
-        <div className="col-3">
-          <Counter initialCount={randomNumber}/>
-        </div>
+    <div className="container text-center">
+      
+      {/* Components */}
+      <div className="row align-items-center">
         <div className="col-6">
+          <Welcome/> 
+        </div>
+        <div className="col-3">
+          <Id setRandomId={setRandomId}/>
+        </div>
+        <div className="col-3">
           <ImageSlider/>
         </div>
         <div className="col-9">
-          <Form 
-          // handleCallback={handleCallback} 
-          // name={name}
-          />
+          <Form/>
         </div>
-        {/* <div className="col-9"> */}
-          {/* <Form2/> */}
-        {/* </div> */}
+        <div className="col-9">
+          <Callback setFullName={setFullName}/>
+        </div>
       </div>
+      
+      {/* // Filled in details */}
+      {/* <div>
+        Name: {fullName}
+        Random Id: {randomId}
+      </div> */}
+      
     </div>
   );
+  
+
 }
 
 export default App;
