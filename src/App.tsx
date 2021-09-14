@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Welcome from './components/cards/Welcome';
-import Id from './components/cards/Id';
-import Authentication from './components/cards/Authentication';
-import Username from './components/cards/Username';
-import DisplayPicture from './components/cards/DisplayPicture';
+import Welcome from './components/cards/Welcome/Welcome';
+import Id from './components/cards/Id/Id';
+import Authentication from './components/cards/Authentication/Authentication';
+import Username from './components/cards/Username/Username';
+import DisplayPhoto from './components/cards/DisplayPhoto/DisplayPhoto';
 
 import ReactDOM from 'react-dom';
 
@@ -41,7 +41,7 @@ const App :  React.FC = () => {
           <Id setRandomId={setRandomId}/>
         </div>
         <div className="col-6">
-          <DisplayPicture/>
+          <DisplayPhoto/>
         </div>
         <div className="col-6">
           <Username setFullName={setFullName}/>

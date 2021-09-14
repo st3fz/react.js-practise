@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactTooltip from "react-tooltip";
 
-import { FaQuestionCircle } from 'react-icons/fa';
-import { FaRedoAlt } from 'react-icons/fa';
+import { FaQuestionCircle, FaRedoAlt } from 'react-icons/fa';
 
 interface Props {
     setRandomId: React.Dispatch<React.SetStateAction<number>>;
@@ -22,9 +21,8 @@ const Id : React.FC<Props> = ( props : Props ) => {
     }
 
     const modifyId = ( sign : string ) => {
-        if ( sign === "+" ) {
-            setId( id + 1 );
-        } else setId( id - 1 );
+        if ( sign === "+" ) setId( id + 1 );
+        else setId( id - 1 );
     }
     
     return(
@@ -39,8 +37,8 @@ const Id : React.FC<Props> = ( props : Props ) => {
                     <FaQuestionCircle/>
                 </span>
             </h2>
-            <button className="btn rounded-circle btn-dark mr-3" onClick={()=>modifyId("+")}>+</button>
             <button className="btn rounded-circle btn-dark" onClick={()=>modifyId("-")}>-</button>
+            <button className="btn rounded-circle btn-dark mr-3" onClick={()=>modifyId("+")}>+</button>
             <button className="btn" onClick={()=>generateNewId()}><FaRedoAlt/></button>
         </div>
     )
