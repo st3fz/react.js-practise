@@ -1,4 +1,4 @@
-#Instructions for launching the react web app 
+# Instructions for launching the react web app 
 
 1. Clone repository into your local machine. For more information on how to clone a repository see https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
