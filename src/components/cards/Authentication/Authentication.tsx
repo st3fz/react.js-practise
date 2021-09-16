@@ -1,30 +1,21 @@
 import React, { useState } from "react";
 
+interface Props {
+    setMobile: React.Dispatch<React.SetStateAction<number>>;
+    setEmail: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Authentication: React.FC = () => {
-
-    const[name , setName] = useState<string>("");
-    const[checkbox , setCheckbox] = useState<boolean>(false);
-    const[title , setTitle ] = useState<string>("");
-    
-    const handleSubmit = (event:any) => {
-        event.preventDefault();
-    }
+const Authentication: React.FC<Props> = ( props: Props ) => {
     
     return(
         <>
-        <form onSubmit={handleSubmit}>
-            <select value={title} onChange={e=>{setTitle(e.target.value)}}>
-                <option>Ms.</option>
-                <option>Mrs.</option>
-                <option>Mr.</option>
-            </select><input onChange={e=>setName(e.target.value)}/>
-            <input type="checkbox" 
-            checked={checkbox} 
-            onClick={()=>{setCheckbox(!checkbox)}}/>
-            <p>Printing: Name: {title} {name}</p>
-            <button type="submit">change</button>
-        </form>
+        <input placeholder="Mobile" type="email" 
+        onChange={e=>props.setEmail(e.target.value)}></input>
+        <button className="btn btn-success">Send OTP</button>
+        <br/>
+        <input type="email" placeholder="Email" 
+        onChange={e=>props.setMobile(parseInt(e.target.value))}></input>  
+        <button className="btn btn-success">Send OTP</button>
         </>
     )
 }

@@ -10,9 +10,11 @@ import ReactDOM from 'react-dom';
 
 const App :  React.FC = () => {
 
-  const [ username , setUsername ] = useState<string>("");
-  const [ randomId , setRandomId ] = useState<number>(NaN);
-  const [ displayPhoto ,  setDisplayPhoto ] = useState<string>("");
+  const [ username, setUsername ] = useState<string>("");
+  const [ randomId, setRandomId ] = useState<number>(NaN);
+  const [ displayPhoto,  setDisplayPhoto ] = useState<string>("");
+  const [ mobile, setMobile ] = useState<number>(NaN);
+  const [ email, setEmail ] = useState<string>("");
 
   // const getAllCardElements = () => {
   //   var elements = [];
@@ -32,35 +34,34 @@ const App :  React.FC = () => {
 
   return (
     <div className="container text-center align-self-center">
-      
-      {/* Components */}
       <div className="row">
-        {/* <div className="col-9">
+        <div className="col-9">
           <Welcome/> 
         </div>
         <div className="col-3">
           <Id setRandomId={setRandomId}/>
-        </div> */}
+        </div>
         <div className="col-6">
           <DisplayPhoto setDisplayPhoto={setDisplayPhoto} displayPhoto={displayPhoto}/>
         </div>
-        {/* <div className="col-6">
+        <div className="col-6">
           <Username setUsername={setUsername}/>
         </div>
         <div className="col-6">
-          <Authentication/>
-        </div> */}
+          <Authentication setMobile={setMobile} setEmail={setEmail}/>
+        </div>
       </div>
       
       {/* // Filled in details */}
-      {/* <div>
+      <div>
         <button className="btn btn-warning">SIGN UP</button> <br/>
         
-        //To be displayed in model after clicking sign up <br/>
         Username: {username}#{randomId} <br/>
         Random Id:  <br/>
-        Profile photo: <img id="display-photo" src={displayPhoto}/>
-      </div> */}
+        Profile photo: <img id="display-photo" src={displayPhoto}/> <br/>
+        Mobile: {mobile} <br/>
+        Email: {email}
+      </div>
     </div>
   );
 
