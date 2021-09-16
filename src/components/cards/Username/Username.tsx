@@ -1,7 +1,7 @@
 import { Component, useEffect, useState } from "react";
 
 interface Props {
-    setFullName: React.Dispatch<React.SetStateAction<string>>;
+    setUsername: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Username : React.FC<Props> = (props : Props) => {
@@ -9,7 +9,7 @@ const Username : React.FC<Props> = (props : Props) => {
         <>
         <form>
             <h3>Pick a username: </h3>
-            <input className="text-align-center" onChange={e=>props.setFullName(e.target.value)}></input>
+            <input className="text-align-center" onChange={e=>props.setUsername(e.target.value)}></input>
             
         </form>
         </>

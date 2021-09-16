@@ -10,54 +10,57 @@ import ReactDOM from 'react-dom';
 
 const App :  React.FC = () => {
 
-  const [ fullName , setFullName ] = useState<string>("");
+  const [ username , setUsername ] = useState<string>("");
   const [ randomId , setRandomId ] = useState<number>(NaN);
+  const [ displayPhoto ,  setDisplayPhoto ] = useState<string>("");
 
-  const getAllCardElements = () => {
-    var elements = [];
-    for (let x = 1; x <= 12; x++) {
-      var noOfElements = document.getElementsByClassName("col-"+x).length;
-      for (let i = 0; i < noOfElements-1; i++) {
-        var element = document.getElementsByClassName("col-"+x)[i]; 
-        elements.push(element);
-      }
-    }
-    console.log(elements);
-  } 
+  // const getAllCardElements = () => {
+  //   var elements = [];
+  //   for (let x = 1; x <= 12; x++) {
+  //     var noOfElements = document.getElementsByClassName("col-"+x).length;
+  //     for (let i = 0; i < noOfElements-1; i++) {
+  //       var element = document.getElementsByClassName("col-"+x)[i]; 
+  //       elements.push(element);
+  //     }
+  //   }
+  //   console.log(elements);
+  // } 
 
-  useEffect(() => {
-    getAllCardElements();
-  })
+  // useEffect(() => {
+  //   getAllCardElements();
+  // })
 
   return (
     <div className="container text-center align-self-center">
       
       {/* Components */}
       <div className="row">
-        <div className="col-9">
+        {/* <div className="col-9">
           <Welcome/> 
         </div>
         <div className="col-3">
           <Id setRandomId={setRandomId}/>
-        </div>
+        </div> */}
         <div className="col-6">
-          <DisplayPhoto/>
+          <DisplayPhoto setDisplayPhoto={setDisplayPhoto} displayPhoto={displayPhoto}/>
         </div>
-        <div className="col-6">
-          <Username setFullName={setFullName}/>
+        {/* <div className="col-6">
+          <Username setUsername={setUsername}/>
         </div>
         <div className="col-6">
           <Authentication/>
-        </div>
+        </div> */}
       </div>
       
       {/* // Filled in details */}
-      <div>
+      {/* <div>
         <button className="btn btn-warning">SIGN UP</button> <br/>
+        
         //To be displayed in model after clicking sign up <br/>
-        Username: {fullName}#{randomId} <br/>
+        Username: {username}#{randomId} <br/>
         Random Id:  <br/>
-      </div>
+        Profile photo: <img id="display-photo" src={displayPhoto}/>
+      </div> */}
     </div>
   );
 
