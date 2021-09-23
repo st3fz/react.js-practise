@@ -1,8 +1,18 @@
 #display-photo {
-    width: 200px;
-    height: 200px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+#Modal {
+    width: 25%;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-right: -50% !important;
+    transform: translate(-50%, -50%) !important;
 }
 
 .row {

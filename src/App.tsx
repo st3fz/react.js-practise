@@ -1,36 +1,83 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import './assets/animation/shake.css'
 import Welcome from './components/cards/Welcome/Welcome';
 import Id from './components/cards/Id/Id';
 import Authentication from './components/cards/Authentication/Authentication';
 import Username from './components/cards/Username/Username';
 import DisplayPhoto from './components/cards/DisplayPhoto/DisplayPhoto';
 
-import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 
 const App :  React.FC = () => {
 
-  const [ username, setUsername ] = useState<string>("");
-  const [ randomId, setRandomId ] = useState<number>(NaN);
-  const [ displayPhoto,  setDisplayPhoto ] = useState<string>("");
-  const [ mobile, setMobile ] = useState<number>(NaN);
-  const [ email, setEmail ] = useState<string>("");
+  const idRef = React.useRef<HTMLDivElement>(null);
+  const usernameRef = React.useRef<HTMLDivElement>(null);
+  const photoRef = React.useRef<HTMLDivElement>(null);
+  const otpRef = React.useRef<HTMLDivElement>(null);
 
-  // const getAllCardElements = () => {
-  //   var elements = [];
-  //   for (let x = 1; x <= 12; x++) {
-  //     var noOfElements = document.getElementsByClassName("col-"+x).length;
-  //     for (let i = 0; i < noOfElements-1; i++) {
-  //       var element = document.getElementsByClassName("col-"+x)[i]; 
-  //       elements.push(element);
-  //     }
-  //   }
-  //   console.log(elements);
-  // } 
+  const [ username, setUsername ] = useState<{data: string, componentRef: React.RefObject<HTMLDivElement>}>(
+    {
+      data: "",
+      componentRef: usernameRef,
+    }
+  )
 
-  // useEffect(() => {
-  //   getAllCardElements();
-  // })
+  const [ id, setId ] = useState<{data: number, componentRef: React.RefObject<HTMLDivElement>}>(
+    {
+      data: NaN,
+      componentRef: idRef
+    }
+  )
+
+  const [ mobile, setMobile ] = useState<{data: number, componentRef: React.RefObject<HTMLDivElement>}>(
+    {
+      data: NaN,
+      componentRef: otpRef
+    }
+  )
+
+  const [ email, setEmail ] = useState<{data: string, componentRef: React.RefObject<HTMLDivElement>}>(
+    {
+      data: "",
+      componentRef: otpRef
+    }
+  )
+
+  const [ displayPhoto, setDisplayPhoto ] = useState<{data: string, componentRef: React.RefObject<HTMLDivElement>}>(
+    {
+      data: "",
+      componentRef: photoRef
+    }
+  )
+  
+  const allComponents = [ id, username, mobile, email, displayPhoto];
+
+  const [ isSubmitted, setIsSubmitted ] = useState<boolean>(false);
+
+  const resetShake = () => {
+    var n = allComponents.length;
+    for (let i = 0; i < n; i++) {
+      allComponents[i].componentRef.current?.classList.remove('shake');
+    }
+  }
+
+  const toggleIsSubmitted = () => {
+    
+    var blankComponents : React.RefObject<HTMLDivElement>[] = [];
+    allComponents.forEach(item => {
+      if (item.data===NaN || item.data==="") blankComponents.push(item.componentRef);
+    })
+
+    if (blankComponents.length !== 0) {
+      blankComponents.forEach(item => {
+        item.current?.classList.add('shake');
+      });
+    } else setIsSubmitted(true);
+    setTimeout(resetShake, 1000);
+
+    console.log(`username: ${username.data}, email: ${email.data}, mobile: ${mobile.data}, id: ${id.data}, dp: ${displayPhoto.data}`)
+  }
 
   return (
     <div className="container text-center align-self-center">
@@ -38,30 +85,30 @@ const App :  React.FC = () => {
         <div className="col-9">
           <Welcome/> 
         </div>
-        <div className="col-3">
-          <Id setRandomId={setRandomId}/>
+        <div ref={idRef} className="col-3">
+          <Id id={id} setId={setId}/>
         </div>
-        <div className="col-6">
-          <DisplayPhoto setDisplayPhoto={setDisplayPhoto} displayPhoto={displayPhoto}/>
+        <div ref={photoRef} className="col-6">
+          <DisplayPhoto displayPhoto={displayPhoto} setDisplayPhoto={setDisplayPhoto}/>
         </div>
-        <div className="col-6">
-          <Username setUsername={setUsername}/>
+        <div ref={usernameRef} className="col-6">
+          <Username username={username} setUsername={setUsername} id={id}/>
         </div>
-        <div className="col-6">
-          <Authentication setMobile={setMobile} setEmail={setEmail}/>
+        <div ref={otpRef} className="col-6">
+          <Authentication mobile={mobile} email={email} setMobile={setMobile} setEmail={setEmail}/>
         </div>
       </div>
       
-      {/* // Filled in details */}
-      <div>
-        <button className="btn btn-warning">SIGN UP</button> <br/>
-        
-        Username: {username}#{randomId} <br/>
-        Random Id:  <br/>
-        Profile photo: <img id="display-photo" src={displayPhoto}/> <br/>
-        Mobile: {mobile} <br/>
-        Email: {email}
+      <button className="btn btn-warning"
+      onClick={toggleIsSubmitted}>SIGN UP</button> <br/>
+
+      <Modal id="Modal" isOpen={isSubmitted}>
+        <div>
+        <img id="display-photo" src={displayPhoto.data}/> {username.data}#{id.data} <br/>
+        Mobile: {mobile.data} <br/>
+        Email: {email.data}
       </div>
+      </Modal>
     </div>
   );
 
