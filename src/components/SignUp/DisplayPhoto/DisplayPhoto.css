@@ -1,0 +1,10 @@
+#display-photos {
+    width: 360px;
+    height: 230px;
+    object-fit: cover;
+}
+
+.image-border {
+    border: 5px solid rgba(255, 255, 255, 0.418);
+    padding: 3px;
+}
