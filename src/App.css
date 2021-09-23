@@ -1,66 +1,38 @@
-#display-photo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+.App {
+  text-align: center;
 }
 
-#Modal {
-    width: 25%;
-    top: 50% !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
-    margin-right: -50% !important;
-    transform: translate(-50%, -50%) !important;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.row {
-    background-image: linear-gradient(
-        90deg,
-        rgb(226, 212, 199),
-        rgb(223, 199, 226),
-        rgb(211, 234, 243), 
-        rgb(190, 224, 189),
-        rgb(226, 212, 199)
-    );
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.col, .col-3, .col-4, .col-6, .col-9 {
-    padding: 20px;
-    padding-top: 30px;
-    padding-bottom: 35px;
-    border: 7px solid white;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.container {
-    margin: 0;
+.App-link {
+  color: #61dafb;
 }
 
-.font-weight-bold {
-    font-weight: bold !important;
-}
-
-h1 {
-    font-size: 45px !important;
-}
-
-h2 {
-    font-size: 30px !important;
-}
-
-h4 {
-    font-size: 20px !important;
-}
-
-h5 {
-    font-size: 18px !important;
-}
-
-h6 {
-    font-size: 16px !important;
-}
-
-p {
-    font-size: 14px !important;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
