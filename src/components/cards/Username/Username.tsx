@@ -1,4 +1,5 @@
 import { Component, useEffect } from "react";
+import './Username.css';
 
 interface Props {
     setUsername: React.Dispatch<React.SetStateAction<{data: string, componentRef: React.RefObject<HTMLDivElement>}>>;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const Username : React.FC<Props> = (props : Props) => {
+    
     var usernameData = {...props.username};
 
     useEffect(()=>{
@@ -21,7 +23,7 @@ const Username : React.FC<Props> = (props : Props) => {
             onChange={e=>usernameData.data = e.target.value}></input>
         </form>
         { usernameData.data==="" ? null 
-        : <p>Your username will be displayed as: {usernameData.data}#{props.id.data}</p>}
+        : <h5>Your username will be displayed as:<span className="larger"> {usernameData.data}#{props.id.data}</span></h5>}
         
         </>
     )
