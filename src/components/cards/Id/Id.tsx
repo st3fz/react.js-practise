@@ -25,8 +25,7 @@ const Id : React.FC<Props> = ( props : Props ) => {
     },[])
 
     const modifyId = (sign : string) => {
-        if ( sign === "+" ) idData.data = idData.data + 1 ;
-        else idData.data = idData.data - 1 ;
+        sign === "+" ? idData.data = idData.data + 1 : idData.data = idData.data - 1 ;
     }
 
     return(
