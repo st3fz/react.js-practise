@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
+
 import './App.css';
 import './assets/animation/shake.css'
+
 import Welcome from './components/cards/Welcome/Welcome';
 import Id from './components/cards/Id/Id';
 import Authentication from './components/cards/Authentication/Authentication';
 import Username from './components/cards/Username/Username';
 import DisplayPhoto from './components/cards/DisplayPhoto/DisplayPhoto';
-
-import Modal from 'react-modal';
 
 const App :  React.FC = () => {
 
@@ -55,13 +56,6 @@ const App :  React.FC = () => {
 
   const [ isSubmitted, setIsSubmitted ] = useState<boolean>(false);
 
-  const resetShake = () => {
-    var n = allComponents.length;
-    for (let i = 0; i < n; i++) {
-      allComponents[i].componentRef.current?.classList.remove('shake');
-    }
-  }
-
   const toggleIsSubmitted = () => {
     
     var blankComponents : React.RefObject<HTMLDivElement>[] = [];
@@ -69,14 +63,14 @@ const App :  React.FC = () => {
       if (item.data===NaN || item.data==="") blankComponents.push(item.componentRef);
     })
 
-    if (blankComponents.length !== 0) {
-      blankComponents.forEach(item => {
-        item.current?.classList.add('shake');
-      });
-    } else setIsSubmitted(true);
-    setTimeout(resetShake, 1000);
+    blankComponents.length!==0 ? blankComponents.forEach(item => item.current?.classList.add('shake'))
+    : setIsSubmitted(true);
 
-    console.log(`username: ${username.data}, email: ${email.data}, mobile: ${mobile.data}, id: ${id.data}, dp: ${displayPhoto.data}`)
+    setTimeout(() => {
+      for (let i = 0; i < blankComponents.length; i++) {
+        blankComponents[i].current?.classList.remove('shake');
+      }
+    }, 250);
   }
 
   return (
