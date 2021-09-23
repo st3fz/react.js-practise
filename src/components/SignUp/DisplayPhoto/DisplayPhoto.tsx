@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./DisplayPhoto.css";
+import OutsideClickHandler from 'react-outside-click-handler';
 import { DisplayPhotos } from "../../../assets/DisplayPhotos/DisplayPhotos";
 import { FaAngleDoubleRight, FaAngleDoubleLeft} from 'react-icons/fa';
+
+import "./DisplayPhoto.css";
 
 interface Props {
     setDisplayPhoto: React.Dispatch<React.SetStateAction<{data: string, componentRef: React.RefObject<HTMLDivElement>}>>;
@@ -82,7 +84,11 @@ const DisplayPhoto : React.FC<Props> = ( props : Props ) => {
         
     return(
         <>
+            <OutsideClickHandler onOutsideClick={() => {
+            setIsComponentVisible(false);
+            }}>
             { isComponentVisible ? imageSlider : showButton }
+            </OutsideClickHandler>
         </>
     )
     
