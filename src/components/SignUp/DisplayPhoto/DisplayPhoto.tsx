@@ -77,9 +77,15 @@ const DisplayPhoto : React.FC<Props> = ( props : Props ) => {
     );
 
     const showButton = (
+
+        isPhotoSelected ? 
+        <img src={photoData.data} onClick={()=>setIsComponentVisible(!isComponentVisible)}
+        className="rounded-circle border border-dark small-img"/> 
+        :   
         <button className="btn btn-dark" onClick={()=>setIsComponentVisible(!isComponentVisible)}>
             <span>Select Display Photo</span>
         </button>
+        
     );
         
     return(
