@@ -18,7 +18,7 @@ const Username : React.FC<Props> = (props : Props) => {
     return (
         <>
         <form>
-            <h3>Pick a username: </h3>
+            <h3>Username: </h3>
             <input className="text-align-center" 
             onChange={e=>usernameData.data = e.target.value}></input>
         </form>
