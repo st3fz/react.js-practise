@@ -6,8 +6,7 @@ import Id from './components/SignUp/Id/Id';
 import Authentication from './components/SignUp/Authentication/Authentication';
 import Username from './components/SignUp/Username/Username';
 import DisplayPhoto from './components/SignUp/DisplayPhoto/DisplayPhoto';
-
-import Modal from 'react-modal';
+import SignUpModal from './modals/SignUpModal/SignUpModal';
 
 const App :  React.FC = () => {
 
@@ -101,15 +100,7 @@ const App :  React.FC = () => {
       
       <button className="btn btn-warning"
       onClick={toggleIsSubmitted}>SIGN UP</button> <br/>
-
-      <Modal id="Modal" isOpen={isSubmitted}>
-        <div>
-          <h2>Sign Up Complete</h2>
-        <img id="display-photo" src={displayPhoto.data}/> {username.data}#{id.data} <br/>
-        Mobile: {mobile.data} <br/>
-        Email: {email.data}
-      </div>
-      </Modal>
+      { isSubmitted ? <SignUpModal displayPhoto={displayPhoto.data} mobile={mobile.data} email={email.data} username={username.data} id={id.data}/> : <></>}
     </div>
   );
 
