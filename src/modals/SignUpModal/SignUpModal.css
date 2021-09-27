@@ -1,0 +1,46 @@
+#sign-up-modal {
+    width: 35vw;
+    height: 60vh;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-right: -50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 25px !important;
+}
+
+.text-green {
+    color: rgb(0, 124, 128);
+}
+
+.user-details {
+    color: rgb(68, 120, 129);
+    font-size: 1.5rem;
+}
+
+.white-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+#display-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border-width: 1px!important;
+    border-color: rgb(72, 99, 104)!important;
+}
+
+.ReactModal__Overlay {
+    background-image: linear-gradient(
+        45deg,
+        rgb(214, 195, 177),
+        rgb(207, 175, 211),
+        rgb(155, 190, 204), 
+        rgb(156, 211, 154),
+        rgb(204, 177, 152)
+    );
+}
