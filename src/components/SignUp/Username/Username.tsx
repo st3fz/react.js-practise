@@ -22,7 +22,7 @@ const Username : React.FC<Props> = (props : Props) => {
             <input className="text-align-center" 
             onChange={e=>usernameData.data = e.target.value}></input>
         </form>
-        { usernameData.data==="" ? null : <h5>Your username will be displayed as:<span className="larger"> {usernameData.data}#{props.id.data}</span></h5>}
+        { usernameData.data==="" ? null : <h6 className="mt-4">Your username:<span className="larger"> {usernameData.data}#{props.id.data}</span></h6>}
         </>
     )
 }

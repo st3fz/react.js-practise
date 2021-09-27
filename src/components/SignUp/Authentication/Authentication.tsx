@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import { FaCheck } from "react";
 
 interface Props {
     setMobile: React.Dispatch<React.SetStateAction<{data: number, componentRef: React.RefObject<HTMLDivElement>}>>;
@@ -22,7 +23,6 @@ const Authentication: React.FC<Props> = ( props: Props ) => {
 
     const [ isMobileOtpClicked, setIsMobileOtpClicked ] = useState<boolean>(false);
     const [ isEmailOtpClicked, setIsEmailOtpClicked ] = useState<boolean>(false);
-    const [ countdown , setCountdown ] = useState<number>(0);
     const [ mobileBtn , setMobileBtn ] = useState<string>("Send OTP");
     const [ emailBtn , setEmailBtn ] = useState<string>("Send OTP");
 
